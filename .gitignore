@@ -4,6 +4,7 @@ out/
 !**/src/test/**/out/
 .gigaide
 .idea
+*.iml
 
 ### Eclipse ###
 .apt_generated
