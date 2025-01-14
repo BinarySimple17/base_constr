@@ -1,3 +1,5 @@
+import java.nio.file.attribute.UserDefinedFileAttributeView;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -63,6 +65,7 @@ public class Main {
         double db = 30.6;
         System.out.println(fl);
         System.out.println(db);
+
 
 //        Символы и строки
         char ch3 = '\u0066';            //UNICODE
