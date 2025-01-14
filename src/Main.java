@@ -16,6 +16,7 @@ public class Main {
     private static void primitiveTypes() {
 
         final boolean IS_ACTIVE = false;    //константа
+
         System.out.println(IS_ACTIVE);
 
         byte a = 3; //-128 до 127 и занимает 1 байт

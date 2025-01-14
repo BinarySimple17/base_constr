@@ -2,6 +2,8 @@ import model.Creature;
 import model.Human;
 import model.Humanoid;
 
+import java.util.Random;
+
 @SuppressWarnings({"ConstantValue", "DataFlowIssue", "lossy-conversions", "PointlessBooleanExpression", "unused", "UnusedAssignment",
         "ReassignedVariable", "SuspiciousNameCombination"})
 public class StatementsExample {
@@ -154,8 +156,62 @@ public class StatementsExample {
         return human.getType() == Creature.REPTILIAN;
     }
 
-    private void loops(){
+    private void loops() {
 
+        System.out.println("Loops: FOR");
+
+        for (int i = 0; i <= 10; i++) {
+            if (i % 2 == 0) { // остаток от деления на два равен нулю?
+                System.out.println(i); //
+                continue; // сразу переходим к следующей итерации
+            }
+            if (i == 9) {
+                System.out.println("Finish now!");
+                break; // финиш жизни цикла
+            }
+        }
+
+        System.out.println("Loops: FOREACH");
+
+        int[] testArray = new int[100];
+// наполним массив случайными числами в пределах от 0 до 99
+        for (int i = 0; i < testArray.length; i++) {
+            testArray[i] = new Random().nextInt(100);
+        }
+
+// теперь применим foreach
+        int numberOfIteration = 1; // просто для наглядности будем выводить номер итерации
+        for (int oneElementInArray : testArray) {
+            if (oneElementInArray >= 50) {
+                System.out.printf("\nIteration number: %d __ Element: %d", numberOfIteration,
+                        oneElementInArray); // печатаем в консоль на новой строке номер итерации и элемент
+                numberOfIteration++;
+                continue; // переходим к следующей итерации и упускаем следующие строки в теле цикла
+            }
+            if (oneElementInArray == 0) { // сработает не в каждом запуске программы
+                System.out.println("\ndonut!");
+                break; // цикл завершится как только попадется элемент 0
+            }
+        }
+
+
+        System.out.println("Loops: WHILE");
+
+        int someNumber = 1;
+        numberOfIteration = 1;
+        while ((someNumber != 0) || numberOfIteration < 10) {
+            someNumber = new Random().nextInt(100);
+            System.out.println("Current someNumber is: " + someNumber);
+            numberOfIteration++;
+        }
+
+        System.out.println("Loops: DO-WHILE");
+        numberOfIteration = 1;
+        do {
+            someNumber = new Random().nextInt(100);
+            System.out.println("Current someNumber is: " + someNumber);
+            numberOfIteration++;
+        } while ((someNumber != 0) || numberOfIteration < 10);
     }
 
 }
