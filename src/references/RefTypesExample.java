@@ -24,7 +24,6 @@ public class RefTypesExample {
     }
 
     private void showAutoboxing() {
-        int i = 12;
 
         Integer int01 = 100;
         Integer int02 = 100;
@@ -64,6 +63,7 @@ public class RefTypesExample {
     }
 
     private void showEnum() {
+        
         CreatureTmp creatureTmp01 = new CreatureTmp("HUMAN");
         CreatureTmp creatureTmp02 = new CreatureTmp("HUMAN");
         CreatureTmp creatureTmp03 = new CreatureTmp("human");
