@@ -63,7 +63,7 @@ public class RefTypesExample {
     }
 
     private void showEnum() {
-        
+
         CreatureTmp creatureTmp01 = new CreatureTmp("HUMAN");
         CreatureTmp creatureTmp02 = new CreatureTmp("HUMAN");
         CreatureTmp creatureTmp03 = new CreatureTmp("human");
@@ -100,6 +100,11 @@ public class RefTypesExample {
         }
 
         human3.setAge(human1.getAge() + 5);
+
+
+        for( int i = 0; i<99_000_000;i++){
+            System.out.println(i);
+        }
 
         System.out.println(human1);
         System.out.println(human2);

@@ -24,6 +24,26 @@ public class StatementsExample {
 
         switches();
 
+        lambdaSwitch();
+
+    }
+
+    private void lambdaSwitch() {
+
+        Expression expression;
+
+        int a = 1;
+        int b = 10;
+
+        expression = switch (a) {
+            case 1 -> (c) -> b * 1;
+            case 2 -> (c) -> b * 2;
+            case 3 -> (c) -> b * 3;
+            default -> (c) -> b * 4;
+        };
+
+        System.out.println(expression.apply(5));
+
     }
 
     private void switches() {
@@ -292,6 +312,10 @@ public class StatementsExample {
             System.out.println("Current someNumber is: " + someNumber);
             numberOfIteration++;
         } while ((someNumber != 0) || numberOfIteration < 10);
+    }
+
+    interface Expression {
+        int apply(int x);
     }
 
 }
