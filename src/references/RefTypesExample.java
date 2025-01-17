@@ -19,6 +19,48 @@ public class RefTypesExample {
 
         showEnum();
 
+        showAutoboxing();
+
+    }
+
+    private void showAutoboxing() {
+        int i = 12;
+
+        Integer int01 = 100;
+        Integer int02 = 100;
+
+        Integer int11 = Integer.valueOf(100);
+        Integer int12 = Integer.valueOf(100);
+        //        Integer int13 = new Integer(100);
+
+        Double dbl11 = Double.valueOf(100);
+        Double dbl12 = Double.valueOf(100);
+        String str11 = String.valueOf('D').intern();
+        String str12 = String.valueOf('D').intern();
+
+        String str21 = "D";
+        String str22 = "D";
+        System.out.println(str11 == str12);
+        System.out.println(str21 == str22);
+
+        Integer int21 = 200;
+        Integer int22 = 200;
+
+        System.out.println(int01 == int02);
+        System.out.println(int21 == int22);
+        System.out.println(int21.equals(int22));
+
+        printInt(200);
+        printInt(int21);
+        int21.intValue();
+    }
+
+    private void printInt(int i) {
+        System.out.println(i);
+    }
+
+    private void printInt(Integer i) {
+        System.out.println(i);
     }
 
     private void showEnum() {
