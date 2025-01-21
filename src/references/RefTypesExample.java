@@ -102,12 +102,13 @@ public class RefTypesExample {
         human3.setAge(human1.getAge() + 5);
 
 
-        for( int i = 0; i<99_000_000;i++){
-            System.out.println(i);
-        }
-
         System.out.println(human1);
         System.out.println(human2);
         System.out.println(human3);
+
+        System.out.println("TO_STRING();");
+        String human3String = human3.toString();
+        System.out.println(human3String);
+
     }
 }

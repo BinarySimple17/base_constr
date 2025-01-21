@@ -7,7 +7,7 @@ public class Human implements Humanoid {
 
     public Human(String name, int age, Creature type) {
         this.name = name;
-        this.age =age;
+        this.age = age;
         this.type = type;
     }
 
@@ -19,36 +19,41 @@ public class Human implements Humanoid {
         this.type = type;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {
         return age;
     }
 
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public void walk(Direction direction) {
 
-        switch (direction){
+        switch (direction) {
             case Direction.LEFT -> {
-                System.out.println("walking left "+ Humanoid.WAY_LENGTH +"m");
+                System.out.println("walking left " + Humanoid.WAY_LENGTH + "m");
             }
             case Direction.RIGHT -> {
-                System.out.println("walking right "+ Humanoid.WAY_LENGTH +"m");
+                System.out.println("walking right " + Humanoid.WAY_LENGTH + "m");
             }
 
             default -> {
                 System.out.println("Fly");
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %s @0x%010X", type.getReadableText(), name, age, hashCode());
     }
 }
