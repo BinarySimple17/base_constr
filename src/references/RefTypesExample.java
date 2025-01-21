@@ -4,6 +4,8 @@ import model.Creature;
 import model.CreatureTmp;
 import model.Human;
 
+import java.util.Objects;
+
 public class RefTypesExample {
 
     @SuppressWarnings("FieldCanBeLocal")
@@ -91,6 +93,7 @@ public class RefTypesExample {
 
         human1 = new Human("Jian-Yang", ageYoung, Creature.HUMAN);
         Human human2 = new Human("Dinesh Chugtai", ageMid, Creature.HUMAN);
+        Human human2_copy = new Human("Dinesh Chugtai", ageMid, Creature.HUMAN);
         var human3 = human1;
 
         try {
@@ -105,6 +108,8 @@ public class RefTypesExample {
         System.out.println(human1);
         System.out.println(human2);
         System.out.println(human3);
+        System.out.println(String.format("human2 and human2_copy equality: %b", human2.equals(human2_copy)));
+        System.out.println(String.format("human2 and human2_copy equality: %b", Objects.equals(human2, human2_copy)));
 
         System.out.println("TO_STRING();");
         String human3String = human3.toString();

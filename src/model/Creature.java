@@ -3,8 +3,8 @@ package model;
 public enum Creature {
 
 //Перечисление с конструктором и полем
-    HUMAN("Normal model.Human"),
-    REPTILIAN("Reptilian");
+    HUMAN("Ordinary Human"),
+    REPTILIAN("Reptilian from Mars");
 
     private final String text;
 

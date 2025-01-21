@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Human implements Humanoid {
     private String name;
     private int age;
@@ -54,6 +56,39 @@ public class Human implements Humanoid {
 
     @Override
     public String toString() {
-        return String.format("%s %s %s @0x%010X", type.getReadableText(), name, age, hashCode());
+//        В Java есть класс Objects, который предоставляет метод toString().
+//        Полезен для обработки null-значений.
+//        Objects.toString(name, "null")
+
+//    IDE (IntelliJ IDEA, Eclipse) и библиотеки (Lombok) могут автоматически генерировать метод toString().
+
+        return String.format("%s %s %s", type.getReadableText(), Objects.toString(name, "null"), age);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+//        Проверка ссылок
+        if (this == obj) {
+            return true;
+        }
+//        Проверка null и классов
+//        instanceof или getClass()? нужно определиться со стратегией при проектировании классов.
+//        генерация IDE?
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+//        Приведение типов и сравнение атрибутов
+        Human person = (Human) obj;
+        return age == person.age && Objects.equals(name, person.name);
+    }
+
+    @Override
+    public int hashCode() {
+//        Всегда переопределяйте hashCode(), если переопределяете equals().
+//        Используйте все значимые поля для вычисления хэш-кода.
+//        Избегайте сложных вычислений в hashCode()
+//        в Equals я использовал только name и age. type пусть будет не значимым.
+        return Objects.hash(name, age);
     }
 }
