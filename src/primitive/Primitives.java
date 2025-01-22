@@ -2,12 +2,19 @@ package primitive;
 
 public class Primitives {
 
+    int i;
+
     public static void main(String[] args) {
 
         new Primitives().primitiveTypes();
     }
 
     public void primitiveTypes() {
+
+        int j;
+
+//        System.out.println(i);
+//        System.out.println(j);
 
         final boolean IS_ACTIVE = false;    //константа
 

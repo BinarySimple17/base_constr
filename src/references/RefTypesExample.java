@@ -4,6 +4,7 @@ import model.Creature;
 import model.CreatureTmp;
 import model.Human;
 
+import java.lang.ref.SoftReference;
 import java.util.Objects;
 
 public class RefTypesExample {
@@ -17,11 +18,25 @@ public class RefTypesExample {
 
     public void run() {
 
+        showArrays();
+
         showMainRefTypes();
 
         showEnum();
 
         showAutoboxing();
+
+    }
+
+    private void showArrays() {
+
+        int[] numbers = {1, 2, 3};
+        String[] names = new String[5];
+
+
+        System.out.println(numbers);
+        System.out.println(names);
+
 
     }
 
