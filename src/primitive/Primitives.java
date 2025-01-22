@@ -73,6 +73,7 @@ public class Primitives {
         System.out.println(ch);
         System.out.println(ch2);
         System.out.println(ch3);
+        System.out.println('a' + 'b');
 
         //Строка = ОБЪЕКТ, ссылочный тип данных
         String hello = "Hello...";
