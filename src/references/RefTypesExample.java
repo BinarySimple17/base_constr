@@ -4,6 +4,7 @@ import model.Creature;
 import model.CreatureTmp;
 import model.Human;
 import model.Humanoid;
+import typing.Typing;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -22,6 +23,8 @@ public class RefTypesExample {
     public void run() {
 
         showMainRefTypes();
+
+        new Typing().run();
 
         showArrays();
 
