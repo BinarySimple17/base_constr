@@ -180,13 +180,6 @@ public class StatementsExample {
         System.out.println(dInc--);    // Вывод: 0
 
 
-        System.out.println("Оператор instanceof");
-        Object object = new Human(null, 0, Creature.REPTILIAN);
-        System.out.println(object instanceof Human); // 'true',
-        System.out.println(object instanceof Object); // 'true', так как 'object' наследник 'Object'
-        System.out.println(object instanceof Math); // 'false', так как 'object' не принадлежит классу 'Math'
-        System.out.println(object instanceof Humanoid); // 'true'
-
         System.out.println("Составные операторы присваивания");
         // записываются короче и неявно приводят переменные к одному типу, если эти типы различаются
         int xSost = 1;

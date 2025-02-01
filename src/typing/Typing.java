@@ -1,5 +1,9 @@
 package typing;
 
+import model.Creature;
+import model.Human;
+import model.Humanoid;
+
 import java.io.Serializable;
 
 public class Typing {
@@ -16,6 +20,14 @@ public class Typing {
 //        instanceof НЕ гарантирует, что проверяемый объект принадлежит к нужному классу.
 //        Он проверяет лишь то, что нужный класс есть в иерархии проверяемого объекта.
 //        Т.е. sthObj instanceof Object будет true для любого объекта, вне зависимости от его настоящего типа.
+
+        System.out.println("Оператор instanceof");
+        Object object = new Human(null, 0, Creature.REPTILIAN);
+        System.out.println(object instanceof Human); // 'true',
+        System.out.println(object instanceof Object); // 'true', так как 'object' наследник 'Object'
+        System.out.println(object instanceof Math); // 'false', так как 'object' не принадлежит классу 'Math'
+        System.out.println(object instanceof Humanoid); // 'true'
+
         Object i = Integer.valueOf(123);
 
         System.out.println(i instanceof Integer);

@@ -3,7 +3,6 @@ package references;
 import model.Creature;
 import model.CreatureTmp;
 import model.Human;
-import model.Humanoid;
 import typing.Typing;
 
 import java.util.Arrays;
@@ -22,77 +21,23 @@ public class RefTypesExample {
 
     public void run() {
 
+//        обертки
+        new Wrappers().run();
+//        классы
         showMainRefTypes();
-
+//        проверка типов
         new Typing().run();
-
-        showArrays();
-
+//        массивы
+        new ArraysExample().run();
+//        перечисления
         showEnum();
 
-        showAutoboxing();
-
     }
 
-    private void showArrays() {
-
-        int[] numbers = {1, 2, 3};
-        String[] names = new String[5];
-        Humanoid[][] humanoids = new Humanoid[3][4];    //0..2 0..3
-
-        humanoids[1][2] = new Human("Russ Hanneman", 40, Creature.HUMAN);
-        humanoids[0][3] = new Human("Laurie Bream", 40, Creature.REPTILIAN);
-
-        System.out.println(numbers);
-        System.out.println(names);
-
-    }
-
-    private void showAutoboxing() {
-
-        //классы-обертки, кеш, пул стрингов, интернирование .intern(), equals/==
-
-        Integer int01 = 100;
-        Integer int02 = 100;
-
-        Integer int11 = Integer.valueOf(100);
-        Integer int12 = Integer.valueOf(100);
-        //        Integer int13 = new Integer(100);
-
-        Double dbl11 = Double.valueOf(100);
-        Double dbl12 = Double.valueOf(100);
-        String str11 = String.valueOf('D');
-        String str12 = String.valueOf('D');
-
-        String str21 = "D";
-        String str22 = "D";
-        System.out.println(str11 == str12); //? +интернирование
-        System.out.println(str21 == str22); //?
-
-        Integer int21 = 200;
-        Integer int22 = 200;
-
-        System.out.println(int01 == int02); //?
-        System.out.println(int21 == int22); //?!
-        System.out.println(int21.equals(int22));
-
-        //boxing + unboxing
-        printInt(200);
-        printInt(int21);
-        int21.intValue();
-    }
-
-    private void printInt(int i) {
-        System.out.println(i);
-    }
-
-    private void printInt(Integer i) {
-        System.out.println(i);
-    }
 
     private void showEnum() {
 
-        //зачем это надо
+        //зачем это надо - таких инстанций может быть хоть миллион
         CreatureTmp creatureTmp01 = new CreatureTmp("HUMAN");
         CreatureTmp creatureTmp02 = new CreatureTmp("HUMAN");
         CreatureTmp creatureTmp03 = new CreatureTmp(HUMAN_TYPE);
@@ -137,6 +82,7 @@ public class RefTypesExample {
     }
 
     private void showMainRefTypes() {
+
         Human human4 = null;
 
         int ageYoung = 24;
