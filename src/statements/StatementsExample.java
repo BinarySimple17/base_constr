@@ -2,7 +2,7 @@ package statements;
 
 import model.Creature;
 import model.Human;
-import model.Humanoid;
+import typing.Typing;
 
 import java.util.Random;
 
@@ -25,6 +25,9 @@ public class StatementsExample {
         switches();
 
         lambdaSwitch();
+
+//        проверка типов
+        new Typing().run();
 
     }
 

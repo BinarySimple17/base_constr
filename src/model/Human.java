@@ -62,7 +62,7 @@ public class Human implements Humanoid {
 
 //    IDE (IntelliJ IDEA, Eclipse) и библиотеки (Lombok) могут автоматически генерировать метод toString().
 
-        return String.format("%s %s %s", type.getReadableText(), Objects.toString(name, "null"), age);
+        return String.format("%s %s %s", type.getReadableText(), name, age);
     }
 
     @Override

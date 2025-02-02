@@ -9,6 +9,7 @@ import java.util.Scanner;
  * в виде Integer. Последний представлен классом и называется классом-оберткой.
  */
 
+@SuppressWarnings({"WrapperTypeMayBePrimitive", "UnnecessaryBoxing", "StringEquality", "NumberEquality", "ConstantValue", "MismatchedQueryAndUpdateOfCollection", "SameParameterValue"})
 public class Wrappers {
     public static void main(String[] args) {
         new Wrappers().run();
@@ -30,6 +31,11 @@ public class Wrappers {
         var value5 = Integer.valueOf(42); // Integer
 
         showAutoboxing();
+// куча методов
+/*        String txt = "Ссылочный тип";
+        value5 = Integer.parseInt("456789");
+        value5 = Integer.valueOf("4444");*/
+
 
     }
 
@@ -56,61 +62,31 @@ public class Wrappers {
         printInt(i);
 
 //        кеш, пул стрингов, интернирование .intern(), equals/==
-//        Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-//        System.gc();
-
-        Scanner sc = new Scanner(System.in);
-        sc.nextInt();
-
-        Integer[] integerArray = new Integer[1000_000];
-        int p = 0;
-        Long memBegin = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        for (int k = 0; k < 1000_000; k++) {
-            p++;
-/*            if (p>129) {
-                p = 0;
-            }*/
-            integerArray[k] = p;
-        }
-        Long memEnd = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        System.out.println(memEnd - memBegin);
-
-
-        sc.nextInt();
-
-        memBegin = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        int[] intArray = new int[1000_000];
-
-        memEnd = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        System.out.println(memEnd - memBegin);
-
-
-//        Long memBegin = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        Integer int01 = 100;
-//        Long memEnd = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-//        System.out.println(memEnd - memBegin);
-        Integer int02 = 100;
-
-        Integer int11 = Integer.valueOf(100);
-        Integer int12 = Integer.valueOf(100);
-//                Integer int13 = new Integer(100);
 
         Double dbl11 = Double.valueOf(100);
         Double dbl12 = Double.valueOf(100);
+//        две строки из символа
         String str11 = String.valueOf('D');
         String str12 = String.valueOf('D');
-
+//      две строки из литерала
         String str21 = "D";
         String str22 = "D";
-        System.out.println(str11 == str12); //? +интернирование
         System.out.println(str21 == str22); //?
+        System.out.println(str11 == str12); //? +интернирование
 
+
+        Integer int01 = 100;            //неявный вызов valueOf
+        Integer int02 = 100;
+        Integer int11 = Integer.valueOf(100);
         Integer int21 = 200;
         Integer int22 = 200;
 
-        System.out.println(int01 == int02); //?
-        System.out.println(int21 == int22); //?!
+        System.out.println(int21 == int22); //?
         System.out.println(int21.equals(int22));
+        System.out.println(int21.intValue() == int22.intValue());
+
+        System.out.println(int01.intValue() == int02.intValue());
+        System.out.println(int01 == int02); //?
     }
 
     private void printInt(int i) {

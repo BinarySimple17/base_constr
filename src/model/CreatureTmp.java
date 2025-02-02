@@ -16,4 +16,5 @@ public class CreatureTmp {
     public String toString() {
         return text;
     }
+
 }

@@ -18,6 +18,7 @@ public enum Creature implements Colorable {
     };
 
     private final String text;
+    private boolean exposed;
 
     Creature(final String text) {
         this.text = text;
@@ -32,5 +33,14 @@ public enum Creature implements Colorable {
         return text;
     }
 
+    @Override
     public abstract String getColor();
+
+    public boolean isExposed() {
+        return exposed;
+    }
+
+    public void setExposed(boolean exposed) {
+        this.exposed = exposed;
+    }
 }

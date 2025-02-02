@@ -6,10 +6,10 @@ public class Primitives {
 
     public static void main(String[] args) {
 
-        new Primitives().primitiveTypes();
+        new Primitives().run();
     }
 
-    public void primitiveTypes() {
+    public void run() {
 
         final boolean IS_ACTIVE = false;    //константа
 
