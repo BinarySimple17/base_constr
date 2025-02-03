@@ -54,7 +54,13 @@ public class StatementsExample {
 //        System.out.println(hash("Aa".hashCode()));
 //        System.out.println(hash("BB".hashCode()));
 
-        //switch statement
+//        switch statement
+//        сравнение строк, разрешение коллизий
+        String collision01 = "Aa";
+        String collision02 = "BB";
+        System.out.println(collision01.hashCode());
+        System.out.println(collision02.hashCode());
+
         int switchResult = 0;
         switch ("BB") {
             case "Aa":
@@ -70,16 +76,15 @@ public class StatementsExample {
         }
         System.out.println(switchResult);
 
-
-        //switch expression
+//        switch expression
+//
 //Если switch в качестве оператора, тогда не имеет значения,
 //охвачены все варианты или нет. можно пропустить case,
 //и код будет работать неправильно, но компилятору все равно
 
         //стрелка
-
         switchResult = switch ("BB") {
-            case "Aa", "CC" -> 1;
+            case "Aa", "CC", "DD" -> 1;
             case "BB" -> 2;
             default -> 3;
         };
@@ -88,7 +93,7 @@ public class StatementsExample {
         //двоеточие
         //yield ключевое слово, которое возвращает значение со свитча, аналог return в методах
         switchResult = switch ("BB") {
-            case "Aa", "CC":
+            case "Aa", "CC", "DD":
                 yield 1;
             case "BB":
                 yield 2;
@@ -168,19 +173,22 @@ public class StatementsExample {
         System.out.println(-positive);    // Вывод: -1
         System.out.println(+negative);    // Вывод: 2
 
-
         int aInc = 0, bInc = 0, cInc = 0, dInc = 0;
 
         System.out.println("Префиксный инкремент/декремент");
         //Префиксные операторы (++x) сразу меняют значение переменной и подставляют его в выражение.
         //Постфиксные операторы (x++) делают наоборот — сначала используют старое значение переменной и только потом подставляют новое.
-        // + есть еще ! — логическое отрицание, и ~ — побитовое отрицание
+        // + есть еще ~ — побитовое отрицание
         System.out.println(++aInc);    // Вывод: 1
         System.out.println(--bInc);    // Вывод: -1
 
         System.out.println("Постфиксный (значение переменных изменится после вывода в консоль)");
         System.out.println(cInc++);    // Вывод: 0
         System.out.println(dInc--);    // Вывод: 0
+
+        byte bit8 = 0b00110011;
+        bit8 = (byte) ~bit8;
+        System.out.println(Integer.toBinaryString(bit8 & 0xFF));
 
 
         System.out.println("Составные операторы присваивания");
@@ -206,6 +214,8 @@ public class StatementsExample {
                 !=	Не равно*/
         if (1 != 0) {
             System.out.println("true");   // Вывод: true
+        } else {
+            System.out.println("else");
         }
 
         System.out.println("Логические операторы");
@@ -237,14 +247,17 @@ public class StatementsExample {
         System.out.println("Тернарный оператор");
         //просто if выполняет соответствующий блок, а тернарный оператор возвращает какой-то результат
         boolean cond = true;
+
         int aTern;
+
+        aTern = cond ? 100 : 200;
+
         if (cond) {
             aTern = 100;
         } else {
             aTern = 200;
         }
 
-        aTern = cond ? 100 : 200;
     }
 
     private boolean isReptilian(Human human) {

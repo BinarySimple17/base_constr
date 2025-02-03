@@ -34,16 +34,20 @@ public class Typing {
         System.out.println(i instanceof Number);
         System.out.println(i instanceof Serializable);
 
-/*        switch (i){
-            case instanceof Integer -> System.out.println("Integer")
-            case instanceof String -> System.out.println("String")
-        }*/
-
         if (i instanceof Integer) {
             System.out.println("Integer");
         } else if (i instanceof String) {
             System.out.println("String");
         }
+
+// работает (как превью) с JDK 17+
+        String name = switch (i) {
+            case Integer ii -> ii.getClass().getSimpleName();
+            case String str -> str.getClass().getSimpleName();
+            default -> "unknown";
+        };
+
+        System.out.println(name);
 
     }
 

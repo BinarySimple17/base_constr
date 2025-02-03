@@ -18,7 +18,7 @@ public class Main {
         System.out.println("Ссылочные типы");                               //+
         new RefTypesExample().run();
 
-        System.out.println("Операторы");
+        System.out.println("Операторы");                                    //+
         new StatementsExample().run();
 
         System.out.println("обертки");                                      //+
