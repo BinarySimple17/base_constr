@@ -10,9 +10,6 @@ import java.util.Arrays;
 
 public class ArraysExample {
 
-
-//    https://topjava.ru/blog/rukovodstvo-po-massivam-v-java-ch3
-
     public static void main(String[] args) {
         new ArraysExample().run();
     }
