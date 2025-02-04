@@ -1,8 +1,10 @@
 package model;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Objects;
 
-public class Human implements Humanoid {
+public class Human implements Humanoid, Comparable{
     private String name;
     private int age;
     private Creature type;
@@ -61,8 +63,13 @@ public class Human implements Humanoid {
 //        Objects.toString(name, "null")
 
 //    IDE (IntelliJ IDEA, Eclipse) и библиотеки (Lombok) могут автоматически генерировать метод toString().
-
-        return String.format("%s %s %s", type.getReadableText(), name, age);
+        StringBuilder sb = new StringBuilder();
+        sb.append(type.getReadableText());
+        sb.append(" ");
+        sb.append(name);
+        sb.append(" ");
+        sb.append(age);
+        return sb.toString();
     }
 
     @Override
@@ -90,5 +97,10 @@ public class Human implements Humanoid {
 //        Избегайте сложных вычислений в hashCode()
 //        в Equals я использовал только name и age. type пусть будет не значимым.
         return Objects.hash(name, age);
+    }
+
+    @Override
+    public int compareTo(@NotNull Object o) {
+        return 0;
     }
 }

@@ -1,3 +1,6 @@
+import methods.Equals;
+import methods.Hashcode;
+import methods.ToString;
 import primitive.Primitives;
 import references.ArraysExample;
 import references.EnumExample;
@@ -30,11 +33,14 @@ public class Main {
         System.out.println("перечисления");                                 //+
         new EnumExample().run();
 
-        System.out.println("toString()");
+        System.out.println("toString()");                                   //+
+        new ToString().run();
 
-        System.out.println("equals()");
+        System.out.println("equals()");                                    //+
+        new Equals().run();
 
-        System.out.println("hashcode");
+        System.out.println("hashcode()");                                  //+
+        new Hashcode().run();
 
     }
 

@@ -2,7 +2,6 @@ package references;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * В Java у каждого примитивного типа есть соответствующий "объектный" тип. Например, для int существует пара
@@ -43,6 +42,7 @@ public class Wrappers {
     private void showAutoboxing() {
 
         int j = 1;
+        long l = 456L;
         Integer i = Integer.valueOf(5);
 
 //        List<int> listP= new ArrayList<>();
@@ -52,6 +52,21 @@ public class Wrappers {
         list.add(3);
 
 //        Autoboxing
+//        automatic conversion between
+//        -primitive type (int to long)
+//        -Unboxed and boxed (long to Long )
+
+//        wrapper object
+        Integer integer;
+        Long longObj;
+//        set wrapper object value to int
+        integer = j;
+        longObj = l;
+        System.out.println(integer);
+        System.out.println(longObj);
+//        it cannot do both at the same time
+//        longObj = j;
+
         i++;
 //        int tmpI = i.intValue();
 //        tmpI++;
@@ -96,4 +111,5 @@ public class Wrappers {
     private void printInt(Integer i) {
         System.out.println("Integer: " + i);
     }
+
 }

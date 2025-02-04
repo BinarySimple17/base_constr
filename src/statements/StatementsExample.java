@@ -18,6 +18,9 @@ public class StatementsExample {
 
         simpleStatements();
 
+        //Java.lang.Math, java.math.BigDecimal, java.math.BigInteger
+        new Mathematics().run();
+
         ifStatements();
 
         loops();

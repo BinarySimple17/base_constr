@@ -74,7 +74,7 @@ public class ArraysExample {
         System.out.println("Копирование массивов");
 //        наивная реализация
 //        перебор в цикле
-        int[] srcArr = {1, 2, 3, 4, 5};
+        int[] srcArr = {1, 7, 3, 8, 5, 8,8,8,8,8,8,8};
         int[] destArr = new int[srcArr.length];
 
 // процесс копирования
@@ -118,6 +118,10 @@ public class ArraysExample {
         System.out.println("Arrays.equals()");
         System.out.println("(examples, examplesCopy:)" + Arrays.equals(examples, examplesCopy));
         System.out.println("examples == examplesCopy:" + (examples == examplesCopy));
+
+//         сортировка и бинарный поиск
+        Arrays.sort(srcArr);
+        System.out.println(Arrays.binarySearch(srcArr, 8));
 
     }
 
