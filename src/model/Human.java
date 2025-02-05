@@ -1,10 +1,9 @@
 package model;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Objects;
 
-public class Human implements Humanoid, Comparable{
+public class Human implements Humanoid, Comparable {
+
     private String name;
     private int age;
     private Creature type;
@@ -100,7 +99,7 @@ public class Human implements Humanoid, Comparable{
     }
 
     @Override
-    public int compareTo(@NotNull Object o) {
+    public int compareTo(Object o) {
         return 0;
     }
 }
