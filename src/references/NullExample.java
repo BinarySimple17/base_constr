@@ -28,14 +28,14 @@ public class NullExample {
         @Nullable
         private Integer age;
 
-        public Person(@NotNull String name, @Nullable Integer age, float height) {
+        public Person(String name, Integer age, float height) {
             this.id = name;
             this.age = age;
             this.height = height;
         }
 
 
-        public @NotNull String getId() {
+        public String getId() {
             return id;
         }
 
@@ -44,11 +44,11 @@ public class NullExample {
         }
 
 
-        public @Nullable Integer getAge() {
+        public Integer getAge() {
             return age;
         }
 
-        public void setAge(@Nullable Integer age) {
+        public void setAge(Integer age) {
             this.age = age;
         }
     }
