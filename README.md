@@ -1,4 +1,3 @@
-
 ## Базовые конструкции языка
 ### 1.Типы данных
 ####  1.1 Примитивные типы
@@ -9,3 +8,5 @@
 ### 4. Массивы
 ### 5. Enum
 ### 6. toString, equals, hashcode.
+
+[Презентация](https://github.com/BinarySimple17/base_constr/releases/latest/)
