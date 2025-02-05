@@ -49,6 +49,10 @@ public class Mathematics {
         BigDecimal bd = new BigDecimal("7897846854684684846546846546846354346843843854.35135463584");
         System.out.println(bd.scale());
 
+//      к примеру из примитивов float
+        BigDecimal d01 = new BigDecimal("2.0");
+        BigDecimal d02 = new BigDecimal("1.1");
+        System.out.println(d01.subtract(d02));
 
     }
 
