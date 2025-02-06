@@ -16,7 +16,7 @@ public class StatementsExample {
 
     public void run() {
 
-        simpleStatements();
+        primitiveStatements();
 
 //        Java.lang.Math, java.math.BigDecimal, java.math.BigInteger
         new Mathematics().run();
@@ -38,14 +38,13 @@ public class StatementsExample {
 
         Expression expression;
 
-        int a = 1;
-        int b = 10;
+        int a = 2;
 
         expression = switch (a) {
-            case 1 -> (c) -> b * 1;
-            case 2 -> (c) -> b * 2;
-            case 3 -> (c) -> b * 3;
-            default -> (c) -> b * 4;
+            case 1 -> (x) -> 1 * x;
+            case 2 -> (x) -> 2 * x;
+            case 3 -> (x) -> 3 * x;
+            default -> (x) -> 4 * x;
         };
 
         System.out.println(expression.apply(5));
@@ -129,15 +128,13 @@ public class StatementsExample {
 
     }
 
-    private void simpleStatements() {
-        /*
-        У каждого оператора Java есть свой приоритет. Чем он выше, тем раньше оператор выполнится в выражении.
-         Бинарные и тернарный операторы (кроме присваивания) выполняются слева направо, а остальные (унарные и присваивания) — справа налево
-        */
-
+    private void primitiveStatements() {
+/*
+        Операторы с обертками работают похожим образом, потому что для оберток сначала выполняется распаковка.
+        разница есть в присваивании и сравнении
+ */
 
         System.out.println("Оператор присваивания");
-        int x = 1;    // Объявляем числовую переменную 'x' со значением 1
         boolean a, b; // Объявляем логические переменные 'a' и 'b'
         a = b = true;
         System.out.printf("%b, %b", a, b);
@@ -145,10 +142,13 @@ public class StatementsExample {
         System.out.println("Арифметические");
 // Сложение чисел
         System.out.println(10 + 2);     // Вывод: 12
-// Конкатенация строк
-        System.out.println("A" + "B");  // Вывод: AB
 // Сложение двух переменных типа 'char'
         System.out.println('a' + 'b');  // Вывод: 195
+// Конкатенация строк
+        System.out.println("A" + "B");  // Вывод: AB
+        Character charA = 'a';
+        Character charB = 'b';
+        System.out.println(charA + charB);      // Вывод: 195
 
         // Деление без остатка
         System.out.println(10 / 2);     // Вывод: 5
@@ -198,19 +198,34 @@ public class StatementsExample {
         bit8 = (byte) ~bit8;
         System.out.println(Integer.toBinaryString(bit8 & 0xFF));
 
+        System.out.println("Операторы сравнения");
+/*              ==	Равно
+                >	Больше, чем
+                <	Меньше, чем
+                >=	Больше или равно
+                <=	Меньше или равно
+                !=	Не равно
+                разница с абапом только в записи == и !=.
+                эти операторы работают с примитивами и обертками примитивов.
+                Объекты сравнивают немного иначе.
+                */
+        System.out.println(aInc <= bInc); //Вывод False
+
 
         System.out.println("Составные операторы присваивания");
         // записываются короче и неявно приводят переменные к одному типу, если эти типы различаются
         int xSost = 1;
-        double ySost = 3.1415d;
+        double ySost = 3.1415;
 
-        //xSost = xSost + ySost;        // Эта строка не скомпилируется
+//        xSost = xSost + ySost;        // Эта строка не скомпилируется
         xSost += ySost;           // А здесь всё хорошо
         // Оператор += в развёрнутом виде
         xSost = (int) (xSost + ySost);
 
+        /*
+            У каждого оператора Java есть свой приоритет. Чем он выше, тем раньше оператор выполнится в выражении.
 
-        /* Приоритет арифметических операций
+            Приоритет арифметических операций
             Одни операции имеют больший приоритет, чем другие, и поэтому выполняются вначале. Операции в порядке уменьшения приоритета:
             i++, i-- постфиксный
             ++i, i-- префиксный
@@ -220,14 +235,13 @@ public class StatementsExample {
             Вначале будет выполняться операция инкремента ++b, которая имеет больший приоритет - она увеличит
             значение переменной b и возвратит его в качестве результата. Затем выполняется умножение 5 * ++b,
             и только в последнюю очередь выполняется сложение a + 5 * ++b
-            скобки переопределяют порядок
          */
         int aPrior = 8;
         int bPrior = 7;
         int cPrior = aPrior + 5 * ++bPrior;
         System.out.println(cPrior);  // 48
 
-/*
+/*      скобки переопределяют порядок
         Несмотря на то, что операция сложения имеет меньший приоритет, но вначале будет выполняться именно сложение,
         а не умножение, так как операция сложения заключена в скобки
 */
@@ -238,13 +252,6 @@ public class StatementsExample {
 
     private void ifStatements() {
 
-        System.out.println("Операторы сравнения");
-/*              ==	Равно
-                >	Больше, чем
-                <	Меньше, чем
-                >=	Больше или равно
-                <=	Меньше или равно
-                !=	Не равно*/
         if (1 != 0) {
             System.out.println("true");   // Вывод: true
         } else {
@@ -264,6 +271,7 @@ public class StatementsExample {
 // OR
         Human mark = new Human("Mark", 0, Creature.REPTILIAN);
         Human mark2 = new Human("Mark 2", 0, Creature.HUMAN);
+
         boolean bBool = isReptilian(mark) || isReptilian(mark2);
         System.out.println(bBool); // Результат: true, так как одно из выражений true
         //бинарный ИЛИ

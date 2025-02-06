@@ -5,6 +5,7 @@ public class Primitives {
     int i, a, b, c;
     float initialFloat;
     char initialChar;
+    final int I_CONST = 1;
 
     public static void main(String[] args) {
 
@@ -17,7 +18,7 @@ public class Primitives {
 
         int j;
 
-//        System.out.println(i);
+        System.out.println(i);
 //        System.out.println(j);
 
         byte a = 3;             //-128 до 127 и занимает 1 байт
@@ -30,7 +31,7 @@ public class Primitives {
 
 //        Все целочисленные литералы, например, числа 10, 4, -5, воспринимаются как значения типа int
 //                long num = 2147483649; //очень большое число, которое выходит за пределы допустимых значений для типа int, то мы столкнемся с ошибкой во время компиляции:
-        long num = 2147483649L;
+        long num = 21474836898879049L;
 
 //        другие системы счисления
         int num111 = 0x6F;      // 16-я система, число 111
@@ -44,12 +45,14 @@ public class Primitives {
         System.out.println(x);
 
 //        Числа с плавающей точкой
-        float xFloat = 8.5F;    //-3.4*10^38 до 3.4*10^38 и занимает 4 байта
+        float xFloat = 8654136541.5F;    //-3.4*10^38 до 3.4*10^38 и занимает 4 байта
         double xDouble = 8.5;   //от ±4.9*10^-324 до ±1.7976931348623157*10^308 и занимает 8 байт
 //        3.1, 4.5 и т.д., Java автоматически рассматривает как double. Чтобы указать на float, надо использовать суффикс f:
-        float fl = 30.6f;
+        float fl  = 30.6f;
         double db = 30.6;
 
+//      Неявное преобразование
+        xDouble = xFloat;
 //      Явное преобразование (сужение):
         double dPi = 3.14;
         i = (int) dPi; // Явное преобразование double -> int (i = 3)
@@ -76,8 +79,6 @@ public class Primitives {
         System.out.println(ch);
         System.out.println(ch2);
         System.out.println(ch3);
-        System.out.println('a' + 'b');
-        System.out.println(str2 + ch2);
 
 //        Строка = ОБЪЕКТ, ссылочный тип данных
         String hello = "Hello...";

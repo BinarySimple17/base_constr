@@ -4,9 +4,12 @@ package references;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 /**
  * Null-безопасность и Nullability
  * org.jetbrains.annotations-1.7.0
+ * NullPointerException
  */
 
 public class NullExample {
@@ -17,16 +20,39 @@ public class NullExample {
 
     public void run() {
 
+        Person person = new Person("Name", null, 0);
+        int age = 0;
+
+//        безопасный код может корректно обработать null
+        System.out.println(person.getAge());
+
+//        NullPointerException
+        try {
+            age = person.getAge();
+        } catch (NullPointerException e) {
+            System.err.println(e);
+        }
+
+        if (person.getAge() != null) {
+            age = person.getAge();
+        }
+
+        Integer newAge;
+        Optional<Integer> optionalAge = Optional.ofNullable(person.getAge());
+        newAge = optionalAge.map(a -> a.intValue()).orElse(-1);
+        System.out.println(newAge);
+
     }
 
     class Person {
 
         @NotNull
         final private String id;
-        @Nullable
-        final private float height;
+
         @Nullable
         private Integer age;
+
+        final private float height;
 
         public Person(String name, Integer age, float height) {
             this.id = name;

@@ -1,8 +1,10 @@
 package model;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Objects;
 
-public class Human implements Humanoid, Comparable {
+final public class Human implements Humanoid, Comparable<Human>, Cloneable {
 
     private String name;
     private int age;
@@ -98,8 +100,19 @@ public class Human implements Humanoid, Comparable {
         return Objects.hash(name, age);
     }
 
+    /*
+    *   положительное, если вызывающий объект больше объекта, переданного в качестве параметра;
+        отрицательное, если вызывающий объект меньше объекта, переданного в качестве параметра;
+        ноль, если объекты равны
+    *
+    * */
+
     @Override
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(@NotNull Human o) {
+        return this.age - o.getAge();
+    }
+
+    public Human clone() throws CloneNotSupportedException {
+        return (Human) super.clone();               //неполное копирование
     }
 }

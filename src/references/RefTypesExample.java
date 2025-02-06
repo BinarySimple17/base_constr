@@ -12,7 +12,7 @@ public class RefTypesExample {
     @SuppressWarnings("FieldCanBeLocal")
     private final int ageMid = 40;
 
-//    почти константа. Ссылочная переменная с модификатором final будет привязана
+    //    почти константа. Ссылочная переменная с модификатором final будет привязана
 //    к объекту без возможности её как-либо переопределить или приравнять к null. но изменять объект можно
     private final Human hendrix = new Human("Richard Hendricks", 30, Creature.HUMAN);
 
@@ -49,18 +49,37 @@ public class RefTypesExample {
         Human human2 = new Human("Dinesh Chugtai", ageMid, Creature.HUMAN);
 //        Копирование ссылок
 //        При присваивании одной ссылочной переменной другой копируется только ссылка, а не объект:
-        Human human2Copy = new Human("Dinesh Chugtai", ageMid, Creature.HUMAN);
         var human3 = human1;
+
+//      делаем второй объект
+        Human human2Copy = new Human("Dinesh Chugtai", ageMid, Creature.HUMAN);
+
+//      теперь хотим сделать копию объекта, но через конструктор работает криво, потому что перед этим приходится
+//      инициализировать всю цепочку объектов из которых состоят поля нужно объекта.
+//      такое "клонирование работает только для простых классов, без больших вложенных зависимостей"
+//       для решения есть интерфейс Clonable и метод clone.
+
+        Human human2Clone = null;
+
+        try {
+            human2Clone = human2Copy.clone();
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+        }
 
 //        Изменения через одну ссылку влияют на объект, доступный через другую ссылку.
         human3.setAge(human1.getAge() + 5);
 
-        // метод toString()
-        System.out.println(human1);
-        System.out.println(human2);
-        System.out.println(human3);
+        //Сравнение объектов
+        System.out.println(human1 == human3);
+        System.out.println(human2 == human2Copy);
+
         System.out.printf("human2 and human2Copy equality: %b%n", human2.equals(human2Copy));
         System.out.printf("human2 and human2Copy equality: %b%n", Objects.equals(human2, human2Copy));
+        System.out.printf("human2Copy and human2Clone equality: %b%n", human2Copy.equals(human2Clone));
+
+//      compare, comparable
+        System.out.println(human1.compareTo(human2Clone));
 
         System.out.println("TO_STRING();");
         String human3String = human3.toString();

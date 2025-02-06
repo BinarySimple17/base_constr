@@ -2,10 +2,7 @@ import methods.Equals;
 import methods.Hashcode;
 import methods.ToString;
 import primitive.Primitives;
-import references.ArraysExample;
-import references.EnumExample;
-import references.RefTypesExample;
-import references.Wrappers;
+import references.*;
 import statements.StatementsExample;
 
 public class Main {
@@ -20,6 +17,9 @@ public class Main {
 
         System.out.println("Ссылочные типы");                               //+
         new RefTypesExample().run();
+
+        System.out.println("null");                                        //+
+        new NullExample().run();
 
         System.out.println("Операторы");                                    //+
         new StatementsExample().run();
