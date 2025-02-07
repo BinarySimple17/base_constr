@@ -5,7 +5,8 @@ import model.Human;
 import model.Humanoid;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @SuppressWarnings("ConstantValue")
 public class Typing {
@@ -16,6 +17,7 @@ public class Typing {
     public void run() {
         showInstanceOf();
         showGetClass();
+        advancedTyping();
     }
 
     private void showInstanceOf() {
@@ -79,5 +81,33 @@ public class Typing {
             case "String" -> System.out.println("String");
             default -> System.out.println("Unknown");
         }
+    }
+
+    private void advancedTyping() {
+//      первоначальная полная запись
+        Map<Integer, Map<String, String>> m = new HashMap<Integer, Map<String, String>>();
+
+//      потом ее сократили до автоматического определения "объекта"
+        Map<Integer, Map<String, String>> m2 = new HashMap<>();
+
+//      потом появились лямбда-выражения, в которых компилятор сам определял тип переменной на основании интерфейса функции
+//      в сами лямбды мы не полезем, здесь они как иллюстрация эволюции расширенной типизации.
+        IExample iExample = ch -> {
+            System.out.println(ch);
+            return 12;
+        };
+
+//      потом появился var - указание компилятору на то, что надо самому определить тип переменной на основании правой части.
+        var m3 = new HashMap<>();
+        var m4 = new HashMap<Integer, Map<String, String>>();
+
+//        VAR
+        var i = Integer.valueOf("123");
+        var j = 123;
+    }
+
+    @FunctionalInterface
+    interface IExample {
+        int apply(char c);
     }
 }
