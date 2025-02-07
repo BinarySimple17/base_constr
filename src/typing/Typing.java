@@ -94,8 +94,10 @@ public class Typing {
 //      в сами лямбды мы не полезем, здесь они как иллюстрация эволюции расширенной типизации.
         IExample iExample = ch -> {
             System.out.println(ch);
-            return 12;
+            return (int) ch;
         };
+        IExample iExample2 = ch -> (int) ch;
+
 
 //      потом появился var - указание компилятору на то, что надо самому определить тип переменной на основании правой части.
         var m3 = new HashMap<>();
