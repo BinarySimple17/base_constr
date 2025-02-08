@@ -1,8 +1,6 @@
 package references;
 
-import model.Creature;
-import model.CreatureTmp;
-import model.Direction;
+import model.*;
 
 import java.util.Arrays;
 
@@ -18,10 +16,26 @@ public class EnumExample {
 
         //зачем это надо - таких инстанций может быть хоть миллион
         CreatureTmp creatureTmp01 = new CreatureTmp("HUMAN");
-        Example ex01 = new Example(creatureTmp01, Direction.LEFT);
+        ExampleBrokenHuman ex01 = new ExampleBrokenHuman(creatureTmp01, Direction.LEFT);
 
         CreatureTmp creatureTmp03 = new CreatureTmp(HUMAN_TYPE);
-        Example ex02 = new Example(creatureTmp03, Direction.LEFT);
+//       если "значение" перечисления приходит откуда-то в виде строки, например, в JSON
+//       при этом Gson или JACKSON, например, такие случаи парсят самостоятельно, если в типе поля указан enum
+        Direction dirFromString = Direction.RIGHT; //пусть будет по умолчанию такое, чтобы не null.
+        for (Direction d : Direction.values()) {
+            if (d.name().equals("LEFT")) {
+                dirFromString = Direction.LEFT;
+            }
+        }
+        ExampleBrokenHuman ex02 = new ExampleBrokenHuman(creatureTmp03, dirFromString);
+
+//        Если, например, Direction это "чужой" класс и он лежит в зоне ответственности другой команды, используется
+//        многими другими сервисами и мы не можем менять его поведение по своему усмотрению,
+//        (например, метод getColor нам нужен в одном виде, а другим в другом), то унаследоваться от enum нельзя.
+//        java.lang.Enum объявлен как final
+//        то можно сделать свою обертку вокруг enum и самостоятельно приводить enum к обертке.
+        ExampleBrokenHumanExternal ex03 = new ExampleBrokenHumanExternal(creatureTmp03, Direction.LEFT);
+        System.out.println(ex03.getD().getColor() + "our color" + "\033[0m");
 
         switch (ex02.getType().getReadableText()) {
             case "HUMAN" -> System.out.println("HUMAN");
@@ -64,11 +78,11 @@ public class EnumExample {
         reptile.setExposed(true);
     }
 
-    class Example {
+    class ExampleBrokenHuman {
         private CreatureTmp type;
         private Direction d;
 
-        public Example(CreatureTmp type, Direction d) {
+        public ExampleBrokenHuman(CreatureTmp type, Direction d) {
             this.type = type;
             this.d = d;
         }
@@ -78,6 +92,24 @@ public class EnumExample {
         }
 
         public Direction getD() {
+            return d;
+        }
+    }
+
+    class ExampleBrokenHumanExternal {
+        final private DirectionAdv d;
+        private CreatureTmp type;
+
+        public ExampleBrokenHumanExternal(CreatureTmp type, Direction d) {
+            this.type = type;
+            this.d = new DirectionAdv(d);
+        }
+
+        public CreatureTmp getType() {
+            return type;
+        }
+
+        public DirectionAdv getD() {
             return d;
         }
     }
