@@ -10,3 +10,4 @@
 ### 6. toString, equals, hashcode.
 
 [Презентация](https://github.com/BinarySimple17/base_constr/releases/latest/)
+[Немного задач](https://github.com/BinarySimple17/java_exercises)
