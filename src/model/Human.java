@@ -112,7 +112,8 @@ final public class Human implements Humanoid, Comparable<Human>, Cloneable {
         return this.age - o.getAge();
     }
 
-    public Human clone() throws CloneNotSupportedException {
-        return (Human) super.clone();               //неполное копирование
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return (Human) super.clone();               //неполное копирование, но нас устраивает
     }
 }
