@@ -24,8 +24,13 @@ public enum Creature implements Colorable {
         this.text = text;
     }
 
+    @Override
+    public String resetColor() {
+        return "\033[0m";
+    }
+
     public String getReadableText() {
-        return getColor() + text + "\033[0m";           //+reset
+        return getColor() + text + resetColor();           //+reset
     }
 
     @Override
