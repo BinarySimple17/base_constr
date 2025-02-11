@@ -12,7 +12,7 @@ public class RefTypesExample {
     @SuppressWarnings("FieldCanBeLocal")
     private final int ageMid = 40;
 
-    //    почти константа. Ссылочная переменная с модификатором final будет привязана
+//    почти константа. Ссылочная переменная с модификатором final будет привязана
 //    к объекту без возможности её как-либо переопределить или приравнять к null. но изменять объект можно
     private final Human hendrix = new Human("Richard Hendricks", 30, Creature.HUMAN);
 
@@ -49,6 +49,7 @@ public class RefTypesExample {
         Human human2 = new Human("Dinesh Chugtai", ageMid, Creature.HUMAN);
 //        Копирование ссылок
 //        При присваивании одной ссылочной переменной другой копируется только ссылка, а не объект:
+//        !VAR для локальных переменных!
         var human3 = human1;
 
 //      делаем второй объект

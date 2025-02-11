@@ -14,6 +14,11 @@ public class Primitives {
 
     public void run() {
 
+//      <модификаторы видимости> (<final>) <тип> <имя переменной> (= <начальное значение>);
+//      (<final>) <модификаторы видимости>  <тип> <имя переменной> (= <начальное значение>);
+//      упоминание final обязывает указать начальное значение, даже если это атрибут класса
+//      у примитивных типов final - объявление константы.
+
         final boolean IS_ACTIVE = false;    //константа
 
         int j;
@@ -55,6 +60,7 @@ public class Primitives {
         xDouble = xFloat;
 //      Явное преобразование (сужение):
         double dPi = 3.14;
+//        dPi = 5;
         i = (int) dPi; // Явное преобразование double -> int (i = 3)
 
 
@@ -72,9 +78,9 @@ public class Primitives {
 */
 
 //        Символы и строки
-        char ch3 = '\u0066';            //hex utf-16
-        char ch = 102;                  // utf-16 символ 'f'
         char ch2 = 'F';                 // символ 'f'
+        char ch = 102;                  // utf-16 символ 'f'
+        char ch3 = '\u0066';            //hex utf-16
         String str2 = "F";              //Объект строка
         System.out.println(ch);
         System.out.println(ch2);
