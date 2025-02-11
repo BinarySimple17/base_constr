@@ -12,7 +12,7 @@ public class RefTypesExample {
     @SuppressWarnings("FieldCanBeLocal")
     private final int ageMid = 40;
 
-//    почти константа. Ссылочная переменная с модификатором final будет привязана
+    //    почти константа. Ссылочная переменная с модификатором final будет привязана
 //    к объекту без возможности её как-либо переопределить или приравнять к null. но изменять объект можно
     private final Human hendrix = new Human("Richard Hendricks", 30, Creature.HUMAN);
 
@@ -62,13 +62,8 @@ public class RefTypesExample {
 //      в байтовый поток, а затем десериализовать обратно в объект. При десериализации создается новый объект
 //      с теми же полями и значениями, что и у исходного объекта. implements Serializable. использование механизма
 //      сериализации может быть медленнее и менее эффективным, чем использование метода clone()
-        Human human2Clone = null;
 
-        try {
-            human2Clone = (Human) human2Copy.clone();
-        } catch (CloneNotSupportedException e) {
-            System.out.println(e);
-        }
+        var human2Clone = cloneable(human2Copy);
 
 //        Изменения через одну ссылку влияют на объект, доступный через другую ссылку.
         human3.setAge(human1.getAge() + 5);
@@ -92,5 +87,15 @@ public class RefTypesExample {
 
     }
 
+    public Human cloneable(Human human2Copy) {
+        Human human2Clone = null;
+
+        try {
+            human2Clone = (Human) human2Copy.clone();
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+        }
+        return human2Clone;
+    }
 
 }

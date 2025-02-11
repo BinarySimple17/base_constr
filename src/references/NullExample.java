@@ -20,7 +20,7 @@ public class NullExample {
 
     public void run() {
 
-        Person person = new Person("Name", null, 0);
+        Person person = new Person("ID73648723", null, 0);
         int age = 0;
 
 //        безопасный код может корректно обработать null
@@ -54,8 +54,8 @@ public class NullExample {
 
         final private float height;
 
-        public Person(String name, Integer age, float height) {
-            this.id = name;
+        public Person(String id, Integer age, float height) {
+            this.id = id;
             this.age = age;
             this.height = height;
         }
