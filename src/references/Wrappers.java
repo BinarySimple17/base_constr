@@ -81,14 +81,13 @@ public class Wrappers {
         Double dbl11 = Double.valueOf(100);
         Double dbl12 = Double.valueOf(100);
 //        две строки из символа
-        String str11 = String.valueOf('D');
-        String str12 = String.valueOf('D');
+        String str11 = String.valueOf('D').intern();
+        String str12 = String.valueOf('D').intern();
 //      две строки из литерала
         String str21 = "D";
         String str22 = "D";
         System.out.println(str21 == str22); //?
         System.out.println(str11 == str12); //? +интернирование
-
 
         Integer int01 = 100;            //неявный вызов valueOf
         Integer int02 = 100;
@@ -108,8 +107,8 @@ public class Wrappers {
         System.out.println("int: " + i);
     }
 
-    private void printInt(Integer i) {
-        System.out.println("Integer: " + i);
-    }
+//    private void printInt(Integer i) {
+//        System.out.println("Integer: " + i);
+//    }
 
 }

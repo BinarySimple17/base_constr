@@ -49,19 +49,19 @@ public class NullExample {
         @NotNull
         final private String id;
 
-        @Nullable
+
         private Integer age;
 
         final private float height;
 
-        public Person(String id, Integer age, float height) {
+        public Person(@NotNull String id, Integer age, float height) {
             this.id = id;
             this.age = age;
             this.height = height;
         }
 
 
-        public String getId() {
+        public @NotNull String getId() {
             return id;
         }
 

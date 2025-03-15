@@ -58,7 +58,7 @@ public class EnumExample {
 //        Перечисления часто используются в операторе switch, так как они обеспечивают безопасность типов.
 //        Перечисления могут реализовывать интерфейсы, что позволяет добавлять дополнительное поведение к константам.
         Creature reptile = REPTILIAN;
-        switch (reptile) {
+        switch (ex98.getType()) {
             case REPTILIAN -> System.out.println(reptile.getReadableText());
             case HUMAN -> System.out.println(reptile.ordinal());
         }

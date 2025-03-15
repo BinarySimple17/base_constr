@@ -106,6 +106,7 @@ public class Typing {
 //        VAR
         var i = Integer.valueOf("123");
         var j = 123;
+        System.out.println(j);
     }
 
     @FunctionalInterface

@@ -21,10 +21,10 @@ public class Primitives {
 
         final boolean IS_ACTIVE = false;    //константа
 
-        int j;
+//        int j;
 
         System.out.println(i);
-//        System.out.println(j);
+        System.out.println(initialChar);
 
         byte a = 3;             //-128 до 127 и занимает 1 байт
 
@@ -53,7 +53,7 @@ public class Primitives {
         float xFloat = 8654136541.5F;    //-3.4*10^38 до 3.4*10^38 и занимает 4 байта
         double xDouble = 8.5;   //от ±4.9*10^-324 до ±1.7976931348623157*10^308 и занимает 8 байт
 //        3.1, 4.5 и т.д., Java автоматически рассматривает как double. Чтобы указать на float, надо использовать суффикс f:
-        float fl  = 30.6f;
+        float fl  = 30.6F;
         double db = 30.6;
 
 //      Неявное преобразование

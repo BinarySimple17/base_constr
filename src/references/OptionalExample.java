@@ -7,8 +7,10 @@ import java.util.Optional;
 public class OptionalExample {
 
     public static void main(String[] args) {
+
         new OptionalExample().run();
     }
+
 
     public void run() {
 
@@ -25,6 +27,7 @@ public class OptionalExample {
 /*        final Example ex01 = exampleRep.findById(4L);
         final String title = ex01.getTitle();
         System.out.println("Длина заголовка:" + title.length());*/
+
 
         final Example ex011 = exampleRep.findById(4L);
         if (ex011 != null) {

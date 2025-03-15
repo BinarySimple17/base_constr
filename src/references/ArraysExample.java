@@ -21,6 +21,7 @@ public class ArraysExample {
      */
     public void run() {
 
+
         int[] ints = new int[1000];         //выделяется память под хранение 1000 интов
         String[] names = new String[5];     // выделяется память под хранение 5 ссылок на строку
 

@@ -98,6 +98,7 @@ public class StatementsExample {
         switchResult = switch ("BB") {
             case "Aa", "CC", "DD":
                 yield 1;
+
             case "BB":
                 yield 2;
             default:
@@ -336,6 +337,8 @@ public class StatementsExample {
 
 // теперь применим foreach
         int numberOfIteration = 1; // просто для наглядности будем выводить номер итерации
+
+
         for (int oneElementInArray : testArray) {
             if (oneElementInArray >= 50) {
                 System.out.printf("\nIteration number: %d __ Element: %d", numberOfIteration,

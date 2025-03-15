@@ -31,7 +31,7 @@ public class Equals {
         IPathWalked ex = new PathWalked(32, Direction.LEFT, 123);
         IPathWalked ex2 = new PathWalked2(32, Direction.LEFT, 123, "John Smith");
 
-        System.out.println(ex.equals(ex2));
+        System.out.println(ex2.equals(ex));
     }
 
     interface IPathWalked {
